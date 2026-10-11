@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Estimo Quiz · Società e imprenditore agricolo</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#1c2a44;--mut:#5d6b85;--line:#d9dfec;--blue:#dcebfb;--yel:#fff0b8;--grn:#d6f0dc;--ora:#ffdfc2;--ok:#1f9d55;--okbg:#e0f5e8;--ko:#d6453d;--kobg:#fde6e4;--acc:#2f5bd8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101626;--card:#19223a;--ink:#eef2fb;--mut:#9aa8c6;--line:#2b3757;--blue:#223a5e;--yel:#4a4220;--grn:#1f4430;--ora:#4d3322;--okbg:#17402b;--kobg:#4a2220;--acc:#7b9bff}}
+:root[data-theme="dark"]{--bg:#101626;--card:#19223a;--ink:#eef2fb;--mut:#9aa8c6;--line:#2b3757;--blue:#223a5e;--yel:#4a4220;--grn:#1f4430;--ora:#4d3322;--okbg:#17402b;--kobg:#4a2220;--acc:#7b9bff}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh}
+.wrap{max-width:640px;margin:0 auto;padding:18px 16px 40px}
+h1{font-size:28px;line-height:1.1;margin:6px 0 4px;letter-spacing:-.5px}
+.sub{color:var(--mut);margin:0 0 18px}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)}
+.stats{display:flex;gap:8px;margin:14px 0}
+.chip{flex:1;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:8px 10px;text-align:center;font-size:13px;color:var(--mut)}
+.chip b{display:block;font-size:20px;color:var(--ink)}
+.grid{display:grid;gap:10px}
+.map{display:flex;align-items:center;gap:12px;text-align:left;width:100%;border:2px solid var(--ink);border-radius:16px;padding:12px 14px;font:inherit;color:#1c2a44;cursor:pointer;box-shadow:0 4px 0 var(--ink);transition:transform .08s,box-shadow .08s}
+.map:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ink)}
+.map .e{font-size:26px}.map b{display:block;font-size:16px}.map small{opacity:.75}
+.mix{background:var(--ink);color:var(--bg);justify-content:center;font-weight:800;font-size:17px;text-align:center}
+.c1{background:var(--blue)}.c2{background:var(--yel)}.c3{background:var(--grn)}.c4{background:var(--ora)}.c5{background:var(--yel)}.c6{background:var(--blue)}
+.top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.x{border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;width:40px;height:40px;font-size:18px;cursor:pointer}
+.bar{flex:1;height:12px;background:var(--line);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#2f5bd8,#7b5cf0);border-radius:99px;transition:width .35s}
+.sc{font-weight:800;min-width:54px;text-align:right}
+.q{background:var(--card);border:2px solid var(--ink);border-radius:20px;padding:18px;box-shadow:0 5px 0 var(--ink);margin-bottom:16px;animation:pop .25s}
+.q h2{font-size:20px;margin:6px 0 0;line-height:1.3}
+@keyframes pop{from{transform:scale(.97);opacity:0}to{transform:none;opacity:1}}
+.opt{display:block;width:100%;text-align:left;background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:14px;padding:13px 14px;margin-bottom:10px;font:inherit;cursor:pointer;transition:border-color .1s,transform .1s}
+.opt:not(:disabled):active{transform:scale(.99);border-color:var(--acc)}
+.opt:disabled{cursor:default}
+.opt.ok{background:var(--okbg);border-color:var(--ok)}.opt.ko{background:var(--kobg);border-color:var(--ko)}
+.opt .n{display:block;margin-top:6px;font-size:14px;color:var(--mut)}
+.opt.ok .n,.opt.ko .n,.opt.dim .n{color:var(--ink)}
+.opt.dim{opacity:.85}
+.fb{border-radius:16px;padding:14px 16px;margin:6px 0 14px;font-weight:600;animation:pop .25s}
+.fb.ok{background:var(--okbg);border:2px solid var(--ok)}.fb.ko{background:var(--kobg);border:2px solid var(--ko)}
+.btn{display:block;width:100%;background:var(--acc);color:#fff;border:2px solid var(--ink);border-radius:14px;padding:14px;font:inherit;font-weight:800;font-size:17px;cursor:pointer;box-shadow:0 4px 0 var(--ink)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ink)}
+.btn.s{background:var(--card);color:var(--ink);margin-top:10px}
+.big{font-size:64px;text-align:center;margin:10px 0 0}
+.res{text-align:center}.res h2{font-size:26px;margin:4px 0}
+.rev{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:12px 14px;margin:8px 0;text-align:left;font-size:15px}
+.rev b{display:block;margin-bottom:4px}.rev span{color:var(--ok);font-weight:700}
+.th{background:none;border:0;color:var(--mut);font:inherit;float:right;cursor:pointer}
+</style></head><body><div class="wrap" id="app"></div>
+<script>
+const M=[["🧩","Dai fattori produttivi all'imprenditore"],["🤝","Società di persone"],["🏢","Società di capitali"],["🌾","Società cooperative"],["🚜","Imprenditore agricolo: le attività"],["🏅","Imprenditore agricolo: tipi particolari"]];
+// formato: m=mappa, q=domanda, o=[[testo,commento]...] la prima è la risposta esatta
+const Q=[
+{m:1,q:"Che cos'è l'AZIENDA?",o:[["La combinazione dei fattori produttivi: lavoro, natura e capitale","Esatto! L'azienda è l'insieme dei fattori produttivi. Senza qualcuno che li organizzi, però, non è ancora un'impresa."],["Fattori produttivi + organizzazione","Questa è la definizione di IMPRESA: all'azienda manca l'organizzazione."],["Colui che organizza i fattori produttivi","Questo è l'IMPRENDITORE, cioè una persona, non un insieme di fattori."],["Un'impresa collettiva con più soci","Quella è la società. L'azienda non dice nulla su quanti soci ci sono."]],},
+{m:1,q:"Quale formula descrive correttamente l'IMPRESA?",o:[["Fattori produttivi (lavoro, natura, capitale) + organizzazione","Giusto! È l'organizzazione a trasformare l'azienda in impresa."],["Solo lavoro e capitale, senza la natura","I fattori produttivi sono tre: lavoro, natura e capitale. Ne manca uno, e manca anche l'organizzazione."],["La sola combinazione dei fattori produttivi","Attenzione: questa è l'azienda. Per avere l'impresa serve anche l'organizzazione."],["Il solo imprenditore","L'imprenditore è la persona che organizza. L'impresa è l'attività organizzata nel suo insieme."]]},
+{m:1,q:"Chi è l'IMPRENDITORE?",o:[["Colui che organizza i fattori produttivi","Esatto! Il suo ruolo chiave è organizzare."],["Chi mette solo il capitale","Il capitale è uno dei fattori produttivi. Chi lo mette non necessariamente lo organizza."],["Chi presta il proprio lavoro","Il lavoro è un fattore produttivo: chi lavora è parte di ciò che viene organizzato."],["Chi possiede la terra","La terra rientra nella natura, un fattore produttivo. Possederla non basta per organizzare."]]},
+{m:2,q:"Per quali attività si può costituire una SOCIETÀ SEMPLICE?",o:[["Solo attività agricole e studi professionali","Esatto! È la forma più 'ristretta' tra le società di persone."],["Tutti i tipi di attività","Questo vale per la SNC (Società in Nome Collettivo), non per la società semplice."],["Solo attività commerciali","Le attività commerciali non rientrano nella società semplice: serve una SNC."],["Solo attività industriali","Anche queste sono escluse: la società semplice è per agricoltura e studi professionali."]]},
+{m:2,q:"Che cosa significa RESPONSABILITÀ ILLIMITATA?",o:[["I soci rispondono dei debiti anche con il patrimonio personale","Giusto! Se i soldi della società non bastano, i creditori possono rivalersi sui beni personali dei soci."],["I soci rispondono solo con il capitale societario","Questa è la responsabilità LIMITATA: il patrimonio personale è al sicuro."],["I soci non rispondono di nessun debito","Nessuna società è così: ci sarà sempre un limite (il capitale) oppure nessun limite."],["Risponde solo l'amministratore","Nella responsabilità illimitata rispondono i soci. Nella SAS, per esempio, gli accomandatari."]]},
+{m:2,q:"Nella SAS, chi amministra la società e risponde in modo illimitato?",o:[["I soci accomandatari","Esatto! Hanno responsabilità illimitata e sono gli amministratori."],["I soci accomandanti","Gli accomandanti hanno responsabilità limitata e non amministrano: mettono il capitale."],["Tutti i soci allo stesso modo","No: nella SAS ci sono due categorie di soci, con ruoli e responsabilità diversi."],["Nessun socio: serve un amministratore esterno","Gli accomandatari sono soci e amministrano direttamente."]]},
+{m:3,q:"Qual è la caratteristica delle SOCIETÀ DI CAPITALI?",o:[["Sono persone giuridiche, di norma a responsabilità limitata","Giusto! La società ha una propria personalità giuridica e i soci di norma rischiano solo il capitale."],["Non hanno personalità giuridica","Questa è una caratteristica delle società di PERSONE."],["Di norma hanno responsabilità illimitata","È il contrario: nelle società di capitali la responsabilità è di norma limitata."],["Possono fare solo attività agricole","Nessun limite del genere: quello vale per la società semplice."]]},
+{m:3,q:"Quando è presente il collegio sindacale in una SRL?",o:[["Solo se il fatturato supera 4 milioni o ci sono più di 20 dipendenti","Esatto! Sotto queste soglie la SRL può farne a meno."],["Sempre, in ogni SRL","Non è obbligatorio per tutte: dipende da fatturato e dipendenti."],["Mai, la SRL non lo prevede","Lo prevede, ma solo al superamento di determinate soglie."],["Solo se la SRL è quotata in borsa","La quotazione in borsa riguarda le SPA, non le SRL."]]},
+{m:3,q:"Quale caratteristica è tipica della SPA?",o:[["Azioni facilmente vendibili, con trattative private o quotate in borsa","Giusto! La circolazione facile delle azioni distingue la SPA."],["I soci possiedono percentuali di quote","Questo è il linguaggio della SRL: quote e non azioni."],["Gli azionisti accomandatari amministrano","Questa è la SAPA, la società in accomandita per azioni."],["Le azioni non si possono mai cedere","È l'opposto: nella SPA le azioni sono facilmente vendibili."]]},
+{m:4,q:"Che cosa dice il PRINCIPIO DEMOCRATICO nelle cooperative?",o:[["A un socio corrisponde un voto","Esatto! Nelle cooperative contano le persone, non quante quote hanno."],["Il voto vale in proporzione alle quote","Questo accade nelle società di capitali. Nelle cooperative no: si vota 'per testa'."],["Votano solo gli amministratori","Il voto spetta a tutti i soci, in modo uguale."],["Vota di più il socio più anziano","L'anzianità non conta: un socio, un voto."]]},
+{m:4,q:"Che cosa significa PRINCIPIO MUTUALISTICO?",o:[["Gli utili sono redistribuiti come vantaggi per i soci","Giusto! Lo scopo è dare vantaggi ai soci, non solo guadagnare."],["Tutti sono accettati come soci se hanno i requisiti","Questo è il principio di PORTA APERTA."],["A un socio corrisponde un voto","Questo è il principio DEMOCRATICO."],["Gli utili vanno solo a chi ha più quote","È la logica del capitale, non della mutualità."]]},
+{m:4,q:"Qual è la funzione del COLLEGIO DEI PROBIVIRI?",o:[["Risolvere le dispute tra soci","Esatto! È un organo in più rispetto a quelli delle società di capitali."],["Controllare i conti (revisori)","Questo è il compito del collegio dei sindaci."],["Amministrare quotidianamente la cooperativa","L'amministrazione spetta al consiglio di amministrazione o all'amministratore delegato."],["Decidere il capitale della società","Il capitale non è deciso da un collegio: i probiviri risolvono le controversie."]]},
+{m:5,q:"Quali sono le ATTIVITÀ ESSENZIALI dell'imprenditore agricolo?",o:[["Coltivazione del fondo, allevamento e selvicoltura","Giusto! Sono il cuore dell'attività agricola."],["Agriturismo e contoterzismo","Sono attività CONNESSE: usano le strutture dell'azienda, ma non sono il nucleo agricolo."],["Trasformazione e commercializzazione","Anche queste sono attività connesse: partono dai prodotti delle essenziali."],["Solo la vendita dei prodotti","La vendita è connessa. Essenziali sono coltivare, allevare e fare selvicoltura."]]},
+{m:5,q:"La trasformazione dei prodotti agricoli (es. latte in formaggio) è…",o:[["Un'attività connessa, se usa prevalentemente prodotti dell'azienda","Esatto! Il criterio di prevalenza la lega alle attività essenziali."],["Un'attività essenziale","Le essenziali sono coltivazione, allevamento e selvicoltura. La trasformazione è connessa."],["Sempre non agricola","Dipende dalla prevalenza: se usa soprattutto i propri prodotti, resta agricola."],["Agricola solo se usa macchinari altrui","I macchinari non c'entrano: conta la prevalenza dei prodotti propri."]]},
+{m:5,q:"Che cos'è il CONTOTERZISMO?",o:[["Lavorazioni o servizi per conto di un committente, con propri macchinari e competenze","Giusto! Si usano le attrezzature dell'azienda per lavorare per altri."],["Ospitalità turistica in azienda","Questo è l'agriturismo, anch'esso attività connessa."],["Coltivazione del proprio fondo","Questa è un'attività essenziale, svolta per sé e non per un committente."],["Vendita dei propri prodotti","È commercializzazione, non contoterzismo."]]},
+{m:6,q:"Il COLTIVATORE DIRETTO a quale normativa fa riferimento?",o:[["Normativa italiana","Esatto! È una figura tipica del diritto italiano."],["Normativa UE","La normativa UE riguarda l'IAP, imprenditore agricolo professionale."],["Nessuna normativa","Ha una disciplina precisa, con requisiti definiti."],["Solo norme regionali","Non è una figura solo regionale: è una figura della normativa italiana."]]},
+{m:6,q:"Quale requisito è proprio del COLTIVATORE DIRETTO?",o:[["Il fondo richiede almeno 104 giornate lavorative all'anno","Giusto! Insieme alla dedizione prevalente e alla copertura di più di 1/3 del fabbisogno con la famiglia."],["Almeno il 50% del reddito dall'attività agricola","Questo è un requisito dell'IAP."],["3 anni di lavoro nel settore o un diploma","Sono le competenze professionali richieste all'IAP."],["Lui e la famiglia coprono meno di 1/3 del fabbisogno","Deve essere PIÙ di 1/3: sotto quella soglia non basta."]]},
+{m:6,q:"Quali sono i requisiti dell'IMPRENDITORE AGRICOLO PROFESSIONALE (IAP)?",o:[["50% del reddito, 50% del lavoro e competenze professionali","Esatto! Le competenze: 3 anni nel settore, oppure diploma/laurea, oppure un corso riconosciuto dalla regione."],["104 giornate lavorative e famiglia che copre più di 1/3","Questi sono requisiti del coltivatore diretto."],["Solo un diploma, senza altri requisiti","Il titolo è solo una delle strade per le competenze: servono anche 50% reddito e 50% lavoro."],["Un fondo di almeno 50 ettari","Non è un requisito: contano reddito, tempo di lavoro e competenze."]]}
+];
+const $=s=>document.querySelector(s),app=$("#app");
+const sh=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+let st={best:0,games:0};try{st=Object.assign(st,JSON.parse(localStorage.getItem("estimo")||"{}"))}catch(e){}
+const save=()=>{try{localStorage.setItem("estimo",JSON.stringify(st))}catch(e){}};
+const THEME=()=>'<button class="th" onclick="tg()">🌓</button>';
+window.tg=()=>{const r=document.documentElement,d=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;r.dataset.theme=d?"light":"dark"};
+function home(){
+app.innerHTML=`${THEME()}<span class="tag">Estimo · Interrogazione</span><h1>Società e imprenditore agricolo</h1><p class="sub">Scegli una mappa e mettiti alla prova. Ogni risposta, giusta o sbagliata, ti spiega il perché.</p>
+<div class="stats"><div class="chip"><b>${st.best}%</b>record</div><div class="chip"><b>${st.games}</b>partite</div><div class="chip"><b>${Q.length}</b>domande</div></div>
+<div class="grid"><button class="map mix" onclick="go(0)">🎲 Sfida mista · 10 domande</button>
+${M.map((x,i)=>`<button class="map c${i+1}" onclick="go(${i+1})"><span class="e">${x[0]}</span><span><small>Mappa ${i+1}</small><b>${x[1]}</b></span></button>`).join("")}</div>`}
+let G;
+function go(m){const pool=Q.filter(q=>!m||q.m===m);G={m,qs:sh(pool).slice(0,m?99:10),i:0,ok:0,streak:0,miss:[]};ask()}
+function ask(){
+const q=G.qs[G.i];q.s=sh(q.o);G.done=false;
+app.innerHTML=`<div class="top"><button class="x" onclick="home()" aria-label="Esci">✕</button><div class="bar"><i style="width:${G.i/G.qs.length*100}%"></i></div><div class="sc">${G.i+1}/${G.qs.length}</div></div>
+<div class="q"><span class="tag">${M[q.m-1][0]} ${M[q.m-1][1]}</span><h2>${q.q}</h2></div>
+<div id="o">${q.s.map((o,k)=>`<button class="opt" onclick="pick(${k})">${o[0]}</button>`).join("")}</div><div id="f"></div>`}
+function pick(k){
+if(G.done)return;G.done=true;const q=G.qs[G.i],right=q.s[k]===q.o[0],last=G.i===G.qs.length-1;
+if(right){G.ok++;G.streak++}else{G.streak=0;G.miss.push(q)}
+document.querySelectorAll(".opt").forEach((b,j)=>{b.disabled=true;const o=q.s[j];
+b.classList.add(o===q.o[0]?"ok":j===k?"ko":"dim");
+if(o===q.o[0]||j===k)b.insertAdjacentHTML("beforeend",`<span class="n">${o===q.o[0]?"✅ ":"❌ "}${o[1]}</span>`)});
+const praise=["Bravo!","Proprio così!","Grande!","Centrato!"],oops=["Quasi!","Non proprio.","Occhio a questa.","Capita, ora è chiara."];
+$("#f").innerHTML=`<div class="fb ${right?"ok":"ko"}">${right?(G.streak>=3?`🔥 ${G.streak} di fila! `:"")+praise[Math.random()*4|0]:oops[Math.random()*4|0]+" La risposta giusta è quella evidenziata in verde."}</div><button class="btn" onclick="next()">${last?"Vedi il risultato 🏁":"Avanti →"}</button>`;
+$("#f").scrollIntoView({behavior:"smooth",block:"nearest"})}
+function next(){G.i++;G.i<G.qs.length?ask():end()}
+function end(){
+const p=Math.round(G.ok/G.qs.length*100);if(p>st.best)st.best=p;st.games++;save();
+const [e,t]=p>=90?["🏆","Pronto per l'interrogazione!"]:p>=70?["🎯","Ci siamo quasi!"]:p>=50?["💪","Buona base, ripassa i punti deboli"]:["📚","Si riparte dalle mappe"];
+app.innerHTML=`<div class="res"><div class="big">${e}</div><h2>${t}</h2><p class="sub">${G.ok} risposte esatte su ${G.qs.length} · ${p}%</p></div>
+${G.miss.length?`<h3>Da ripassare</h3>`+G.miss.map(q=>`<div class="rev"><b>${q.q}</b><span>✅ ${q.o[0][0]}</span><br>${q.o[0][1]}</div>`).join(""):`<p class="rev">Nessun errore: perfetto! 🎉</p>`}
+<button class="btn" onclick="go(${G.m})">Riprova 🔁</button><button class="btn s" onclick="home()">Torna alle mappe</button>`}
+home();
+</script></body></html>
